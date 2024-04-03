@@ -1,6 +1,7 @@
 import React from 'react'
 import SideBarMenu from './SideBarMenu/SideBarMenu';
 import ContentMenu from './ContentMenu/ContentMenu';
+
 const MainSection = () => {
     return (
         <>

@@ -5,11 +5,15 @@
 :root {
   
   --color-light: #41908f;
-  --color-dark: #2b455b;
+  --color-dark: #024154;
   --color-border: #055972;
+  --text-color:#024154;
   --Montserrat-Regular: Montserrat-Regular;
   --Montserrat-Medium: Montserrat-Medium;
   --Montserrat-Bold: Montserrat-Bold;
+  --Avenir-Roman:Avenir-Roman;
+  --Avenir-Black:Avenir-Black;
+  --Avenir-Book:Avenir-Book;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,6 +37,21 @@
 @font-face {
   font-family: Montserrat-Bold;
   src: url("/assets/fonts/Montserrat-Bold.ttf");
+}
+
+@font-face {
+  font-family: Avenir-Black;
+  src: url("/assets/fonts/Avenir/AvenirLTStd-Black.otf");
+}
+
+@font-face {
+  font-family: Avenir-Book;
+  src: url("/assets/fonts/Avenir/AvenirLTStd-Book.otf");
+}
+
+@font-face {
+  font-family: Avenir-Roman;
+  src: url("/assets/fonts/Avenir/AvenirLTStd-Roman.otf");
 }
 
 @layer utilities {
