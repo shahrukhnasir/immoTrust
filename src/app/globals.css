@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  
+  --color-light: #41908f;
+  --color-dark: #2b455b;
+  --color-border: #055972;
+  --Montserrat-Regular: Montserrat-Regular;
+  --Montserrat-Medium: Montserrat-Medium;
+  --Montserrat-Bold: Montserrat-Bold;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url("/assets/fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: Montserrat-Medium;
+  src: url("/assets/fonts/Montserrat-Medium.ttf");
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url("/assets/fonts/Montserrat-Bold.ttf");
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
