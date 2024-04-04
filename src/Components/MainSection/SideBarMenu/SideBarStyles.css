@@ -169,6 +169,7 @@
 .dropDown {
     overflow-y: scroll;
     height: 100px;
+    overflow-x: hidden  ;
 }
 
 /* overflow scroll  */
@@ -194,7 +195,8 @@
 /* overflow scroll  */
 .list {
     padding: 10px 0px;
-
+    position: relative;
+    left: 20px;
 }
 
 

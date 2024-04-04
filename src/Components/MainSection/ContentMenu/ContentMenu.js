@@ -129,7 +129,7 @@ const ContentMenu = () => {
             </span>
           </div>
           {/* line  */}
-          <hr />
+          <hr className='hr' />
 
           {/* Cookie Section */}
           <div className='d-flex'>
@@ -153,7 +153,7 @@ const ContentMenu = () => {
             </span>
           </div>
           {/* Line  */}
-          <hr />
+          <hr className='hr' />
 
 
 
@@ -170,7 +170,7 @@ const ContentMenu = () => {
             </span>
           </div>
           {/* line  */}
-          <hr />
+          <hr className='hr' />
 
           {/* Cookie Section */}
           <div className='d-flex'>
@@ -194,8 +194,7 @@ const ContentMenu = () => {
             </span>
           </div>
           {/* Line  */}
-          <hr />
-
+          <hr className='hr' />
 
           <div className='d-flex py-4'>
             <span className='rounded_circl'>
@@ -222,7 +221,7 @@ const ContentMenu = () => {
 
         </div>
 
-        <hr />
+        <hr className='hr' />
 
 
         {/* text write section✌ */}
