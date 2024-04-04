@@ -13,14 +13,14 @@ const MainSection = () => {
 
                         {/* side bar menu section  */}
 
-                        <div className='col-lg-4'>
+                        <div className='col-lg-3'>
                             <SideBarMenu />
                         </div>
 
 
                         {/* content section  */}
 
-                        <div className='col-lg-8'>
+                        <div className='col-lg-9'>
 
                             <ContentMenu />
                         </div>

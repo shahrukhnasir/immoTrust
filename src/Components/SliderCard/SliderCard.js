@@ -21,7 +21,7 @@ const SliderCard = ({ image, title, description,icon }) => {
                             </div>
                             <p className="card-text">{description}</p>
                             <div className="float-end">
-                                <img src={icon} alt="" />
+                                <img src={icon} className='icon' alt="" />
                             </div>
                         </div>
                     </div>

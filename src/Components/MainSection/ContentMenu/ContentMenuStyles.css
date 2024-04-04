@@ -8,11 +8,14 @@
 }
 
 .top_secion {
-    height: 150px;
+    height: 170px;
     background: var(--color-dark);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .content_section {
@@ -55,6 +58,10 @@
     justify-content: center;
     font-size: 13px;
     margin: 0px 10px 0px 0px;
+}
+.dotsClass{
+    color: #459E97;
+
 }
 
 .cookie_icon {
