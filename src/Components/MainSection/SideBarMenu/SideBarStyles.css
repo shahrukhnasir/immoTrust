@@ -40,12 +40,36 @@
 
 .sideBarMenu {
     width: 100%;
+    height: 320px;
+    overflow-y: scroll;
+    overflow-x: hidden;
     font-family: var(--Montserrat-Regular);
     font-size: 18px;
     padding: 10px 0px;
     color: #ffffff !important;
-
 }
+
+/* overflow scroll  */
+
+.sideBarMenu::-webkit-scrollbar {
+    width: 0px !important;
+    height: 20px !important;
+}
+
+.sideBarMenu::-webkit-scrollbar-track {
+    background: #ffffff !important;
+    border-radius: 50px !important;
+}
+
+.sideBarMenu::-webkit-scrollbar-thumb {
+    background-color: #ffff;
+    border-radius: 50px !important;
+    height: 10px !important;
+    width: 200px !important;
+    border: 1px solid #ffffff;
+}
+
+/* overflow scroll  */
 
 .sideBarMenu .label {
     color: var(--color-dark);
@@ -73,6 +97,7 @@
     font-family: var(--Montserrat-Regular);
     font-size: 16px;
     margin-right: 16px;
+    color: var(--color-dark);
 }
 
 
@@ -86,17 +111,25 @@
     color: #ffffff !important;
 }
 
-.active .sidemenu .label  {
+.active .sidemenu .label {
     color: var(--color-dark);
     font-size: 18px;
     color: #ffffff;
 }
 
-.sidemenu .desc.active {
+.active .menuIcon {
+    font-family: var(--Montserrat-Regular);
+    font-size: 16px;
+    margin-right: 16px;
+    color: #ffff;
+}
+
+.active .sidemenu .desc {
     color: var(--color-dark);
     font-size: 12px;
     color: #ffffff !important;
 }
+
 .box {
     background: #EEFBFF;
     border-radius: 20px;
@@ -111,21 +144,151 @@
     color: var(--color-dark);
     font-family: var(--Montserrat-Regular);
 }
-.sidemenu{
+
+.sidemenu {
     padding: 10px;
 }
+
 /* drop down */
 .dropdown-content {
     display: none;
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease; 
-  }
-  
-  .dropdown-content.show {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.dropdown-content.show {
     display: block;
-    max-height: 200px;
-    opacity: 1;
-  }
-  
+    height: 100px;
+    overflow-y: scroll;
+}
+
+/* overflow scroll  */
+
+.dropdown-content::-webkit-scrollbar {
+    width: 10px !important;
+    height: 30px !important;
+
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    background: #ffffff !important;
+    border-radius: 50px !important;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background-color: #979797;
+    border-radius: 50px !important;
+    height: 10px !important;
+    width: 200px !important;
+    border: 1px solid #312f2f;
+}
+
+
+/* drop down list */
+
+.list {
+    padding: 10px 0px;
+
+}
+
+.list:hover {
+    background-color: #979797;
+
+}
+
+.list span {
+    text-decoration: none;
+    color: white;
+    font-family: var(--Montserrat-Regular);
+    font-size: 12px;
+
+}
+
+/* overflow scroll  */
+
+/* drop down */
+
+/* profile card*/
+
+.card_profile {
+    border: 4px solid #ddd;
+    border-radius: 10px;
+    max-width: 350px;
+    text-align: center;
+    margin-top: 65px;
+    height: 158px;
+    background-color: var(--color-light);
+}
+
+.card_img {
+    width: 120px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 100%;
+    margin: -50px 0px;
+    position: relative;
+    top: 0px;
+    left: 72px;
+}
+
+.card_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card_info {
+    padding-bottom: 20px;
+}
+
+.card_info h2 {
+    font-size: 13px;
+    color: white;
+    text-align: center;
+    font-family: var(--Montserrat-Bold);
+    margin-top: 30px;
+}
+
+.card_info p {
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    font-family: var(--Montserrat-Regular);
+    margin: 0;
+}
+
+.card_etc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_etc span {
+    font-family: var(--Montserrat-Regular);
+    width: 158px;
+    height: 30px;
+    background-color: #459E97;
+    border: none;
+    border-radius: 10px;
+    font-size: 11px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.bottom_text {
+    margin: 10px auto !important;
+    text-align:  center;
+
+}
+
+.bottom_text span {
+    font-family: var(--Montserrat-Regular);
+    font-size: 10px;
+    color: lightgray;
+
+}

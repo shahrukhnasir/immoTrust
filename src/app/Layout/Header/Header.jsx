@@ -28,7 +28,7 @@ const Header = () => {
                             </div>
                             <div className="col-auto col-md-4 d-flex justify-content-start justify-content-lg-center">
                                 <a href="" className="d-flex justify-content-start">
-                                    <Image src={'/assets/images/Immo-Logo-white.svg'} alt="" className="main-logo" width={200} height={100}/>
+                                    <Image src={'/assets/images/Immo-Logo-white.svg'}   width={200} height={100} alt="" className="main-logo"  />
                                 </a>
                             </div>
                             <div className="col-4 d-none d-lg-flex d-flex justify-content-end align-iitems-center" style={{display:'flex',alignItems:'center'}}>

@@ -19,12 +19,12 @@ const SideBarMenu = () => {
   };
 
   // Custom PDF label component
-const PdfLabel = () => (
+  // const PdfLabel = () => (
 
-  <span>
-    PDF <RiArrowDropDownLine />
-  </span>
-);
+  //   <span>
+  //     PDF <RiArrowDropDownLine />
+  //   </span>
+  // );
   const Menu = [
     {
       icon: <BsPerson />,
@@ -45,7 +45,7 @@ const PdfLabel = () => (
       label: 'Checklisten',
       desc: 'Praktische Checklisten für jeden Schritt.',
       route: '/page3',
-      title: <PdfLabel/> 
+      title: "PDF"
 
     },
     {
@@ -53,7 +53,7 @@ const PdfLabel = () => (
       label: 'Ratgeber',
       desc: 'Immobilien-Expertenrat für Eigentümer.',
       route: '/page4',
-      title: <PdfLabel/>
+      title: "PDF"
     },
     {
       icon: <TbCrown />,
@@ -94,7 +94,7 @@ const PdfLabel = () => (
                     <span className="menuIcon">{menu?.icon}</span>
                     <span className="label">{menu?.label}</span>
                     <span className="box" onClick={(e) => {
-                      if (menu.title === <PdfLabel/> && pathname === menu.route) {
+                      if (menu.title === "PDF" && pathname === menu.route) {
                         handleToggleMenu(e);
                       }
                     }}>{menu?.title}</span>
@@ -102,25 +102,25 @@ const PdfLabel = () => (
                   <div className='desc'>{menu?.desc}</div>
                   {menu?.title === 'PDF' && pathname === menu.route && toggleMenu && (
                     <div className="dropdown-content show">
-                      <ul>
-                        <li>
-                          <a href="/page1">KI</a>
+                      <ul className='unOrderList'>
+                        <li className='list'>
+                          <span >Bewirtschaftung einer Immobilie</span>
                         </li>
-                        <li>
-                          <a href="/page2">LINK</a>
+
+                        <li className='list'>
+                          <span >Bewirtschaftung einer Immobilie</span>
+                        </li><li className='list'>
+                          <span >Bewirtschaftung einer Immobilie</span>
+                        </li><li className='list'>
+                          <span >Bewirtschaftung einer Immobilie</span>
+                        </li><li className='list'>
+                          <span >Bewirtschaftung einer Immobilie</span>
+                        </li><li className='list'>
+                          <span >Bewirtschaftung einer Immobilie</span>
+                        </li><li className='list'>
+                          <span >Bewirtschaftung einer Immobilie</span>
                         </li>
-                        <li>
-                          <a href="/page3">PDF</a>
-                        </li>
-                        <li>
-                          <a href="/page4">PDF</a>
-                        </li>
-                        <li>
-                          <a href="/page5">PDF</a>
-                        </li>
-                        <li>
-                          <a href="/page6">PDF</a>
-                        </li>
+
                       </ul>
                     </div>
                   )}
@@ -129,6 +129,29 @@ const PdfLabel = () => (
             </div>
           ))}
         </div>
+
+        {/* profile */}
+
+
+        <div class="card_profile">
+          <div class="card_img">
+            <img src="/assets/images/profile.png" alt="user-image" />
+          </div>
+          <div class="card_info">
+            <h2>Immotrust AG </h2>
+            <p>Vertrauensvolle</p>
+            <p> Immobilienberatung seit 2008.</p>
+          </div>
+          <div className='card_etc'>
+
+            <span>Carlos Kuk - Eigentümer</span>
+          </div>
+        </div>
+
+
+<div className='bottom_text'>
+  <span>Impressum & Datenschutzcenter</span>
+</div>
       </div>
     </section>
   );
