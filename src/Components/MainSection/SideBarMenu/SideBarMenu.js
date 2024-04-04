@@ -18,6 +18,11 @@ const SideBarMenu = () => {
     setToggleMenu(!toggleMenu);
   };
 
+  const [activeAccordion, setActiveAccordion] = useState(null); // Initialize activeAccordion state
+
+  const handleToggleAccordion = (index) => {
+    setActiveAccordion(activeAccordion === index ? null : index);
+  };
   // Custom PDF label component
   // const PdfLabel = () => (
 
@@ -90,42 +95,56 @@ const SideBarMenu = () => {
             <div key={i} className={pathname === menu.route ? 'active' : ''}>
               <Link href={menu.route}>
                 <div className="sidemenu">
-                  <div className="d-flex">
-                    <span className="menuIcon">{menu?.icon}</span>
+                  <span className="menuIcon">{menu?.icon}</span>
+                  <div className="d-flex justify-align-content-between">
                     <span className="label">{menu?.label}</span>
-                    <span className="box" onClick={(e) => {
-                      if (menu.title === "PDF" && pathname === menu.route) {
-                        handleToggleMenu(e);
-                      }
-                    }}>{menu?.title}</span>
-                  </div>
-                  <div className='desc'>{menu?.desc}</div>
-                  {menu?.title === 'PDF' && pathname === menu.route && toggleMenu && (
-                    <div className="dropdown-content show">
-                      <ul className='unOrderList'>
-                        <li className='list'>
-                          <span >Bewirtschaftung einer Immobilie</span>
-                        </li>
+                    <div className='mini_box'>
+                      {menu.title === "PDF" ?
+                        <span className="box" onClick={(e) => {
+                          if (menu.title === "PDF" && pathname === menu.route) {
+                            handleToggleMenu(e);
+                          }
+                        }}>
+                          {menu?.title}<img src={'/assets/images/sidebaricons/dropArrow.png'} className="img-fluid" alt="" />
 
-                        <li className='list'>
-                          <span >Bewirtschaftung einer Immobilie</span>
-                        </li><li className='list'>
-                          <span >Bewirtschaftung einer Immobilie</span>
-                        </li><li className='list'>
-                          <span >Bewirtschaftung einer Immobilie</span>
-                        </li><li className='list'>
-                          <span >Bewirtschaftung einer Immobilie</span>
-                        </li><li className='list'>
-                          <span >Bewirtschaftung einer Immobilie</span>
-                        </li><li className='list'>
-                          <span >Bewirtschaftung einer Immobilie</span>
-                        </li>
+                        </span>
+                        :
+                        <span className="box" onClick={(e) => {
+                          if (menu.title !== "PDF" && pathname === menu.route) {
+                            handleToggleMenu(e);
+                          }
+                        }}>
+                          {menu?.title}
 
-                      </ul>
+                        </span>}
+
                     </div>
-                  )}
+
+
+                  </div>
                 </div>
+                <div className='desc'>{menu?.desc}</div>
               </Link>
+
+              {menu?.title === 'PDF' && pathname === menu.route && toggleMenu && (
+                <div className="dropDown">
+                  <ul className='unOrderList'>
+                    < li className='list'>
+                      <span >Bewirtschaftung einer Immobilie</span>
+                    </li><li className='list'>
+                      <span >Bewirtschaftung einer Immobilie</span>
+                    </li><li className='list'>
+                      <span >Bewirtschaftung einer Immobilie</span>
+                    </li><li className='list'>
+                      <span >Bewirtschaftung einer Immobilie</span>
+                    </li><li className='list'>
+                      <span >Bewirtschaftung einer Immobilie</span>
+                    </li><li className='list'>
+                      <span >Bewirtschaftung einer Immobilie</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -133,7 +152,7 @@ const SideBarMenu = () => {
         {/* profile */}
 
 
-        <div class="card_profile">
+        < div class="card_profile" >
           <div class="card_img">
             <img src="/assets/images/profile.png" alt="user-image" />
           </div>
@@ -149,9 +168,9 @@ const SideBarMenu = () => {
         </div>
 
 
-<div className='bottom_text'>
-  <span>Impressum & Datenschutzcenter</span>
-</div>
+        <div className='bottom_text'>
+          <span>Impressum & Datenschutzcenter</span>
+        </div>
       </div>
     </section>
   );
