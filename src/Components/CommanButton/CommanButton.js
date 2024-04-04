@@ -5,7 +5,7 @@ const CommanButton = ({ label, style, onClick, icon }) => {
             <button type="submit">
                 <div className="button">
                     <span>{label}</span>
-                    <span className="icon"><img src={icon} alt="icon" /></span>
+                    <span className="iconArrow"><img src={icon} alt="icon" /></span>
                 </div>
             </button>
         </span>

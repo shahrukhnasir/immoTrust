@@ -1,0 +1,131 @@
+.side_menu_section {
+    height: 780px;
+    background-color: transparent;
+}
+
+.inner_section {
+
+    position: relative;
+    top: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin: 40px 0px 0px 0px;
+    box-shadow: -6px 0px 47px -29px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: -6px 0px 47px -29px rgba(0, 0, 0, 1);
+    -moz-box-shadow: -6px 0px 47px -29px rgba(0, 0, 0, 1);
+    height: 700px;
+    background: rgb(255, 255, 255);
+}
+
+.rounded_box {
+    width: 95px;
+    height: 22px;
+    background: #EFFBFF;
+    border-radius: 20px;
+    margin: 15px 10px;
+}
+
+.rounded_box .smallText {
+    font-size: 10px !important;
+    position: relative;
+    top: -3px;
+    left: 10px;
+
+}
+
+.top {
+    display: flex;
+    justify-content: end;
+}
+
+.sideBarMenu {
+    width: 100%;
+    font-family: var(--Montserrat-Regular);
+    font-size: 18px;
+    padding: 10px 0px;
+    color: #ffffff !important;
+
+}
+
+.sideBarMenu .label {
+    color: var(--color-dark);
+    font-size: 18px;
+}
+
+.sideBarMenu .desc {
+    color: var(--color-dark);
+    font-size: 12px;
+}
+
+
+#LinkBar {
+    width: 100%;
+    border-radius: 5px;
+    color: #19244B;
+    padding: 6px;
+    font-family: var(--Montserrat-Regular);
+    font-size: 13px;
+    margin: 5px;
+
+}
+
+.menuIcon {
+    font-family: var(--Montserrat-Regular);
+    font-size: 16px;
+    margin-right: 16px;
+}
+
+
+
+.active {
+    width: 100%;
+    padding: 0;
+    font-family: var(--Montserrat-Regular);
+    font-size: 18px;
+    background-color: var(--color-light);
+    color: #ffffff !important;
+}
+
+.active .sidemenu .label  {
+    color: var(--color-dark);
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.sidemenu .desc.active {
+    color: var(--color-dark);
+    font-size: 12px;
+    color: #ffffff !important;
+}
+.box {
+    background: #EEFBFF;
+    border-radius: 20px;
+    padding: 7px 18px;
+    font-size: 12px;
+    width: 47px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 8px;
+    color: var(--color-dark);
+    font-family: var(--Montserrat-Regular);
+}
+.sidemenu{
+    padding: 10px;
+}
+/* drop down */
+.dropdown-content {
+    display: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease; 
+  }
+  
+  .dropdown-content.show {
+    display: block;
+    max-height: 200px;
+    opacity: 1;
+  }
+  

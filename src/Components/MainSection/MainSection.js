@@ -8,7 +8,7 @@ const MainSection = () => {
             <section>
                 {   /* Container here we use */}
                 <div className='container'>
-                    <div className='row'>
+                    <div className='row g-0'>
 
 
                         {/* side bar menu section  */}
