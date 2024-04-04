@@ -33,7 +33,7 @@ const SideBarMenu = () => {
   const Menu = [
     {
       icon: <BsPerson />,
-      label: 'Immobilienlexikon',
+      label: 'Immobilienlex',
       desc: 'Immobilienwissen für alle Fälle.',
       route: '/page1',
       title: 'KI'

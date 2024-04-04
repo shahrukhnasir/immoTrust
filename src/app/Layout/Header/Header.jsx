@@ -1,6 +1,7 @@
 import React from 'react';
 import "../Header/HeaderStyles.css";
 import Image from 'next/image';
+import Link from "next/link"
 const Header = () => {
     return (
         <>
@@ -27,9 +28,9 @@ const Header = () => {
                                 </a>
                             </div>
                             <div className="col-auto col-md-4 d-flex justify-content-start justify-content-lg-center">
-                                <a href="" className="d-flex justify-content-start">
+                                <Link href="/" className="d-flex justify-content-start">
                                     <Image src={'/assets/images/Immo-Logo-white.svg'}   width={200} height={100} alt="" className="main-logo"  />
-                                </a>
+                                </Link>
                             </div>
                             <div className="col-4 d-none d-lg-flex d-flex justify-content-end align-iitems-center" style={{display:'flex',alignItems:'center'}}>
                                 <a href="" className="pe-3" target="_blank">

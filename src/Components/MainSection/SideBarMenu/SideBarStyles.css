@@ -233,14 +233,14 @@
     border-radius: 10px;
     max-width: 350px;
     text-align: center;
-    margin-top: 65px;
-    height: 158px;
+    margin: 46px 10px 0px 10px;
+    height: 185px;
     background-color: var(--color-light);
 }
 
 .card_img {
     width: 120px;
-    height: 90px;
+    height: 115px;
     overflow: hidden;
     border-radius: 100%;
     margin: -50px 0px;
@@ -260,7 +260,7 @@
 }
 
 .card_info h2 {
-    font-size: 13px;
+    font-size: 16px;
     color: white;
     text-align: center;
     font-family: var(--Montserrat-Bold);
@@ -268,7 +268,7 @@
 }
 
 .card_info p {
-    font-size: 10px;
+    font-size: 12px;
     color: white;
     text-align: center;
     font-family: var(--Montserrat-Regular);
@@ -283,12 +283,12 @@
 
 .card_etc span {
     font-family: var(--Montserrat-Regular);
-    width: 158px;
+    width: 185px;
     height: 30px;
     background-color: #459E97;
     border: none;
     border-radius: 10px;
-    font-size: 11px;
+    font-size: 12px;
     text-align: center;
     display: flex;
     justify-content: center;
