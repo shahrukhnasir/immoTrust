@@ -1,49 +1,88 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import "../ContentMenu/ContentMenuStyles.css"
-import SliderCard from '@/Components/SliderCard/SliderCard'
-import CommanButton from '@/Components/CommanButton/CommanButton'
-import Slider from 'react-slick'
-// // Import css files
+import ReactFlagsSelect from "react-flags-select";
+import { UploadOutlined } from '@ant-design/icons';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Button, Col, Row, Space, Upload } from 'antd'
+import Search from 'antd/es/transfer/search'
+import Image from 'next/image'
+import ExpenseCard from '@/Components/ExpenseCard/ExpenseCard';
+import { Chart } from "react-google-charts";
+import TotalRevenu from '@/Components/Charts/TotalRevenu';
+import CustomerSatisfaction from '@/Components/Charts/CustomerSatisfaction';
+import GeoCharts from '@/Components/Charts/GeoCharts';
+import VisitorInsights from '@/Components/Charts/VisitorInsights';
+import PieChart from '@/Components/Charts/PieChart';
+import AnimatedChart from '@/Components/Charts/AnimatedChart';
 const ContentMenu = () => {
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
+  // select country 
+  const onSearch = (value, _e, info) => console.log(info?.source, value);
+  const [select, setSelect] = useState("US");
+  const onSelect = (code) => setSelect(code);
+
+
+
+  // uploads
+  const props = {
+    name: 'file',
+    action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
+    headers: {
+      authorization: 'authorization-text',
+    },
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        console.log(info.file, info.fileList);
       }
-    ]
+      if (info.file.status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
+    progress: {
+      strokeColor: {
+        '0%': '#108ee9',
+        '100%': '#87d068',
+      },
+      strokeWidth: 3,
+      format: (percent) => percent && `${parseFloat(percent.toFixed(2))}%`,
+    },
   };
+  // card data
+  const data = [
+    {
+      id: 1,
+      price: '$1k',
+      exp: "Total Expense",
+      day: "+8% from yesterday",
+      color: '#FFE2E5'
+    },
+    {
+      id: 2,
+      price: '300',
+      exp: "Total Items",
+      day: "+5% from yesterday",
+      color: '#FFF4DE'
+    }, {
+      id: 3,
+      price: '5',
+      exp: "Items Purchase",
+      day: "+1,2% from yesterday",
+      color: '#DCFCE7'
+    },
+    {
+      id: 4,
+      price: '8',
+      exp: "New Customers",
+      day: "0,5% from yesterday",
+      color: '#F3E8FF'
+    },
+
+  ];
+
   return (
     <>
       <section className='right_section'>
@@ -51,194 +90,144 @@ const ContentMenu = () => {
         <div className='top_secion'>
           <div className="slider-container">
 
-            <Slider {...settings}>
-              <div>
-                <SliderCard
-                  title="Immobilien im Scheidungsfall"
-                  description="Bei Scheidung Immobilien gerecht aufteilen und rechtliche Fallstricke sicher vermeiden."
-                  image={'/assets/images/hear-icon.png'}
-                  icon={'/assets/images/play-icon.png'} />
+            <div className='row'>
+              <div className='col-lg-4 my-auto'>
+                <h1 className='dashBoard'>
+                  Dashboard
+                </h1>
               </div>
-              <div>
-                <SliderCard
-                  title="Immobilien im Scheidungsfall"
-                  description="Bei Scheidung Immobilien gerecht aufteilen und rechtliche Fallstricke sicher vermeiden."
-                  image={'/assets/images/hear-icon.png'}
-                  icon={'/assets/images/play-icon.png'} />
-              </div>
-              <div>
-                <SliderCard
-                  title="Immobilien im Scheidungsfall"
-                  description="Bei Scheidung Immobilien gerecht aufteilen und rechtliche Fallstricke sicher vermeiden."
-                  image={'/assets/images/hear-icon.png'}
-                  icon={'/assets/images/play-icon.png'} />
-              </div>
-              <div>
-                <SliderCard
-                  title="Immobilien im Scheidungsfall"
-                  description="Bei Scheidung Immobilien gerecht aufteilen und rechtliche Fallstricke sicher vermeiden."
-                  image={'/assets/images/hear-icon.png'}
-                  icon={'/assets/images/play-icon.png'} />
-              </div>
-              <div>
-                <SliderCard
-                  title="Immobilien im Scheidungsfall"
-                  description="Bei Scheidung Immobilien gerecht aufteilen und rechtliche Fallstricke sicher vermeiden."
-                  image={'/assets/images/hear-icon.png'}
-                  icon={'/assets/images/play-icon.png'} />
-              </div>
-              <div>
-                <SliderCard
-                  title="Immobilien im Scheidungsfall"
-                  description="Bei Scheidung Immobilien gerecht aufteilen und rechtliche Fallstricke sicher vermeiden."
-                  image={'/assets/images/hear-icon.png'}
-                  icon={'/assets/images/play-icon.png'} />
-              </div>
-              <div>
-                <SliderCard
-                  title="Immobilien im Scheidungsfall"
-                  description="Bei Scheidung Immobilien gerecht aufteilen und rechtliche Fallstricke sicher vermeiden."
-                  image={'/assets/images/hear-icon.png'}
-                  icon={'/assets/images/play-icon.png'} />
-              </div>
-              <div>
-                <SliderCard
-                  title="Immobilien im Scheidungsfall"
-                  description="Bei Scheidung Immobilien gerecht aufteilen und rechtliche Fallstricke sicher vermeiden."
-                  image={'/assets/images/hear-icon.png'}
-                  icon={'/assets/images/play-icon.png'} />
-              </div>
-            </Slider>
-          </div>
 
+              <div className='col-lg-5'>
+                <Search
+                  placeholder="Search"
+                  allowClear
+                  onSearch={onSearch}
+                  style={{
+                    width: 200,
+                  }}
+                />
+              </div>
+              <div className='col-lg-2'>
+                <ReactFlagsSelect
+                  selected={select}
+                  onSelect={onSelect}
+                  countries={["fi", "GB", "IE", "IT", "NL", "SE"]}
+                />
+              </div>
+              <div className='col-lg-1'>
+                <div className='notification_img'>
+                  <Image
+                    src="/assets/images/Notifications.png"
+                    width={50}
+                    height={50}
+                    alt='notification img'
+                  />
+                </div>
+              </div>
+
+            </div>
+
+          </div>
         </div>
 
 
 
+        {/* <div className='chartSection'> */}
 
-        <section className='content_section'>
-          {/* Content 1st sec */}
+        {/* Today’s Expense */}
+        <Space className=''>
+          <Row>
+            <Col span={12}>
 
-          <div className='d-flex'>
-            <span className='rounded_circl'>
-              E
-            </span>
+              <div className='expense_section'>
 
-            <span className='main_dec'>
-              Ich werde in 4 Wochen geschieden, bin 54 Jahre alt, männlich, und wir besitzen gemeinsam ein Haus im Wert von 3.4 Millionen CHF. Was steht mir zu?
-            </span>
-          </div>
-          {/* line  */}
-          <hr className='hr' />
-
-          {/* Cookie Section */}
-          <div className='d-flex'>
-            <span className='cookie_icon'>
-              <img src={'/assets/images/half-cookie.png'} alt='half-cookie' />
-            </span>
-
-            <span className='description'>
-              Es ist wichtig zu wissen, dass bei einer Scheidung in der Schweiz die Vermögensteilung und die Zuteilung des ehelichen Heims stark von den spezifischen Umständen abhängig sind. Allgemein gesagt, wird bei einer Scheidung das Vermögen, das während der Ehe erworben wurde (das sogenannte Errungenschaftsbeteiligung), zwischen den beiden Parteien aufgeteilt. Das Heim, in dem wir zusammen gelebt haben, gehört zu diesem Vermögen und wird also unter Umständen im Rahmen dieser Teilung berücksichtigt.
-            </span>
-          </div>
-
-
-
-          {/* Cookie Section */}
-          <div className='d-flex py-4'>
-            <span className='cookie_icon'></span>
-
-            <span className='description'>
-              Es ist wichtig zu wissen, dass bei einer Scheidung in der Schweiz die Vermögensteilung und die Zuteilung des ehelichen Heims stark von den spezifischen Umständen abhängig sind. Allgemein gesagt, wird bei einer Scheidung das Vermögen, das während der Ehe erworben wurde (das sogenannte Errungenschaftsbeteiligung), zwischen den beiden Parteien aufgeteilt. Das Heim, in dem wir zusammen gelebt haben, gehört zu diesem Vermögen und wird also unter Umständen im Rahmen dieser Teilung berücksichtigt.
-            </span>
-          </div>
-          {/* Line  */}
-          <hr className='hr' />
+                <Row>
+                  <Col span={8}>
+                    <h4 className='heading'>Today’s Expense</h4>
+                    <p>Expense Summery</p>
+                  </Col>
+                  <Col span={8} offset={8}>
+                    <Upload {...props} className='ant-upload'>
+                      <Button icon={<UploadOutlined />}>Upload</Button>
+                    </Upload>
+                  </Col>
+                </Row>
+                <Row>
+                  {data?.map((item, i) => (
+                    <ExpenseCard
+                      key={i}
+                      bgColor={item?.color}
+                      day={item?.day}
+                      expense={item?.exp}
+                      price={item?.price}
+                    />
+                  ))}
+                </Row>
+              </div>
+            </Col>
+            {/* Visitor Insights */}
 
 
+            <Col span={12}>
+              <div className='comman_style'>
+                <VisitorInsights />
 
-
-          {/* Content 1st sec */}
-
-          <div className='d-flex py-4'>
-            <span className='rounded_circl'>
-              E
-            </span>
-
-            <span className='main_dec'>
-              Gibt es eine Möglichkeit, dass meine Frau und ich zu einer Einigung finden, die uns beiden zugutekommt? Falls nicht, wie kann ich mich am besten schützen?
-            </span>
-          </div>
-          {/* line  */}
-          <hr className='hr' />
-
-          {/* Cookie Section */}
-          <div className='d-flex'>
-            <span className='cookie_icon'>
-              <img src={'/assets/images/half-cookie.png'} alt='half-cookie' />
-            </span>
-
-            <span className='description'>
-              Es ist wichtig zu wissen, dass bei einer Scheidung in der Schweiz die Vermögensteilung und die Zuteilung des ehelichen Heims stark von den spezifischen Umständen abhängig sind. Allgemein gesagt, wird bei einer Scheidung das Vermögen, das während der Ehe erworben wurde (das sogenannte Errungenschaftsbeteiligung), zwischen den beiden Parteien aufgeteilt. Das Heim, in dem wir zusammen gelebt haben, gehört zu diesem Vermögen und wird also unter Umständen im Rahmen dieser Teilung berücksichtigt.
-            </span>
-          </div>
+              </div>
+            </Col>
+          </Row>
 
 
 
-          {/* Cookie Section */}
-          <div className='d-flex py-4'>
-            <span className='cookie_icon'></span>
-
-            <span className='description'>
-              Es ist wichtig zu wissen, dass bei einer Scheidung in der Schweiz die Vermögensteilung und die Zuteilung des ehelichen Heims stark von den spezifischen Umständen abhängig sind. Allgemein gesagt, wird bei einer Scheidung das Vermögen, das während der Ehe erworben wurde (das sogenannte Errungenschaftsbeteiligung), zwischen den beiden Parteien aufgeteilt. Das Heim, in dem wir zusammen gelebt haben, gehört zu diesem Vermögen und wird also unter Umständen im Rahmen dieser Teilung berücksichtigt.
-            </span>
-          </div>
-          {/* Line  */}
-          <hr className='hr' />
-
-          <div className='d-flex py-4'>
-            <span className='rounded_circl'>
-              E
-            </span>
-            <span className='main_dec'>
-              Ich werde in 4 Wochen geschieden, bin 54 Jahre alt, männlich, und wir besitzen gemeinsam ein Haus im Wert von 3.4 Millionen CHF. Was steht mir zu?
-            </span>
-          </div>
-        </section>
-
-        {/* text write section Start✌  */}
-
-        <div className='d-flex px-5'>
-
-          <input
-            type="email"
-            className="form-control inputField"
-            placeholder='Geben sie hier ihre Nachricht ein....'
-
-          />
-
-          <CommanButton label="Anfrage Absenden" icon={'/assets/images/arrow-icon.png'} />
-
-        </div>
-
-        <hr className='hr' />
 
 
-        {/* text write section✌ */}
+        </Space>
 
-        {/* footer section  */}
-        <div className='pb-3'>
+        <Row>
+          <Col span={12}>
+            <div className='revenu_chart'>
 
-          <div className='d-flex justify-content-center align-items-center'>
-            <span className='brand_name'>
-              Bereitgestellt von
-            </span>
-            <span className='mx-2'>
-              <img src={"/assets/images/dotwebLogo.png"} alt="" />
-            </span>
-          </div>
-        </div>
-      </section>
+              <TotalRevenu />
+
+            </div>
+          </Col>
+          <Col span={12}>
+            <div className='map_chart'>
+              <GeoCharts />
+            </div>
+
+
+          </Col>
+        </Row>
+
+
+        <Row>
+
+
+          <Col span={12}>
+            <div className='pieChart'>
+              <PieChart />
+            </div>
+
+
+          </Col>
+
+
+          <Col span={12}>
+            <div className='custSatisfaction'>
+              <CustomerSatisfaction />
+            </div>
+
+
+          </Col>
+        </Row>
+
+
+
+
+        {/* </div> */}
+
+
+      </section >
     </>
   )
 }

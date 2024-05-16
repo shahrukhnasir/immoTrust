@@ -3,17 +3,25 @@
 @tailwind utilities;
 
 :root {
-  
-  --color-light: #41908f;
-  --color-dark: #024154;
+
+  --color-dark: #5D5FEF;
+  --color-light: #737791;
   --color-border: #055972;
-  --text-color:#024154;
+  --text-color: #024154;
   --Montserrat-Regular: Montserrat-Regular;
   --Montserrat-Medium: Montserrat-Medium;
   --Montserrat-Bold: Montserrat-Bold;
-  --Avenir-Roman:Avenir-Roman;
-  --Avenir-Black:Avenir-Black;
-  --Avenir-Book:Avenir-Book;
+  --Avenir-Roman: Avenir-Roman;
+  --Avenir-Black: Avenir-Black;
+  --Avenir-Book: Avenir-Book;
+}
+
+.module_selectBtn[aria-expanded="true"]:after {
+  border-bottom: 5px solid #ffffff
+}
+
+* {
+  transition: all 1ms;
 }
 
 @media (prefers-color-scheme: dark) {

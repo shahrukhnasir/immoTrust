@@ -3,11 +3,15 @@ import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import '../SideBarMenu/SideBarStyles.css';
-import { BsCalendar2Check, BsPerson } from 'react-icons/bs';
-import { SlLock } from 'react-icons/sl';
-import { TbBox, TbCrown } from 'react-icons/tb';
+import { IoCartOutline } from "react-icons/io5";
+import { MdOutlineLeaderboard } from "react-icons/md";
+import { BiCartAdd } from "react-icons/bi";
 import { TfiHeart } from 'react-icons/tfi';
-import { RiArrowDropDownLine } from "react-icons/ri";
+import { MdDashboard } from "react-icons/md";
+import { FaChartLine } from "react-icons/fa6";
+import { RiMessage2Line } from "react-icons/ri";
+import { IoSettingsOutline } from "react-icons/io5";
+import { PiSignOut } from "react-icons/pi";
 
 const SideBarMenu = () => {
   const pathname = usePathname();
@@ -32,47 +36,46 @@ const SideBarMenu = () => {
   // );
   const Menu = [
     {
-      icon: <BsPerson />,
-      label: 'Immobilienlex',
-      desc: 'Immobilienwissen für alle Fälle.',
+      icon: <MdDashboard />,
+      label: 'Dashboard',
       route: '/page1',
-      title: 'KI'
     },
     {
-      icon: <SlLock />,
-      label: 'Preisschätzung',
-      desc: 'Den Wert Ihres Hauses schätzen lassen.',
+      icon: <MdOutlineLeaderboard />,
+      label: 'Leaderboard',
       route: '/page2',
       title: 'LINK'
     },
     {
-      icon: <BsCalendar2Check />,
-      label: 'Checklisten',
-      desc: 'Praktische Checklisten für jeden Schritt.',
+      icon: <IoCartOutline />,
+      label: 'Order',
       route: '/page3',
-      title: "PDF"
 
     },
     {
-      icon: <TbBox />,
-      label: 'Ratgeber',
-      desc: 'Immobilien-Expertenrat für Eigentümer.',
+      icon: <BiCartAdd />,
+      label: 'Products',
       route: '/page4',
-      title: "PDF"
     },
     {
-      icon: <TbCrown />,
-      label: 'Mandatsnavigator',
-      desc: 'Verständlich zum Verkaufsabschluss.',
+      icon: <FaChartLine />,
+      label: 'Sales Report',
       route: '/page5',
-      title: 'KI'
     },
     {
-      icon: <TfiHeart />,
-      label: 'Wohntraumfinder',
-      desc: 'Zum Traumheim mit KI-Unterstützung.',
+      icon: <RiMessage2Line />,
+      label: 'Messages',
       route: '/page6',
-      title: 'KI'
+    },
+    {
+      icon: <IoSettingsOutline />,
+      label: 'Settings',
+      route: '/page7',
+    },
+    {
+      icon: <PiSignOut />,
+      label: 'Sign Out',
+      route: '/page8',
     },
   ];
 
@@ -80,16 +83,13 @@ const SideBarMenu = () => {
     <section className="side_menu_section">
       <div className="inner_section">
         <div className="top">
-          <span style={{ alignContent: 'center' }}>
-            <img src={'/assets/images/shiningStar.png'} className="img-fluid" alt="" />
-          </span>
-          <span className="rounded_box">
-            <small className="smallText"> NACHTMODUS</small>
-          </span>
+          <div className="logo_box">
+            <span><img src={'/assets/images/logo.png'} className="img-fluid" alt="" /></span>
+            <span><small className="smallText"> Amounex</small></span>
+            
+          </div>
         </div>
-        <div className="d-flex justify-content-center">
-          <img src={'/assets/images/Immo-Logo-dark.png'} className="img-fluid w-50" alt="" />
-        </div>
+
         <div className="sideBarMenu">
           {Menu.map((menu, i) => (
             <div key={i} className={pathname === menu.route ? 'active' : ''}>
@@ -98,32 +98,8 @@ const SideBarMenu = () => {
                   <span className="menuIcon">{menu?.icon}</span>
                   <div className="d-flex justify-align-content-between">
                     <span className="label">{menu?.label}</span>
-                    <div className='mini_box'>
-                      {menu.title === "PDF" ?
-                        <span className="box" onClick={(e) => {
-                          if (menu.title === "PDF" && pathname === menu.route) {
-                            handleToggleMenu(e);
-                          }
-                        }}>
-                          {menu?.title}<img src={'/assets/images/sidebaricons/dropArrow.png'} className="img-fluid" alt="" />
-
-                        </span>
-                        :
-                        <span className="box" onClick={(e) => {
-                          if (menu.title !== "PDF" && pathname === menu.route) {
-                            handleToggleMenu(e);
-                          }
-                        }}>
-                          {menu?.title}
-
-                        </span>}
-
-                    </div>
-
-
                   </div>
                 </div>
-                <div className='desc'>{menu?.desc}</div>
               </Link>
 
               {menu?.title === 'PDF' && pathname === menu.route && toggleMenu && (
@@ -152,18 +128,15 @@ const SideBarMenu = () => {
         {/* profile */}
 
 
-        < div class="card_profile" >
-          <div class="card_img">
-            <img src="/assets/images/profile.png" alt="user-image" />
-          </div>
+        <div class="card_profile" >
           <div class="card_info">
-            <h2>Immotrust AG </h2>
-            <p>Vertrauensvolle</p>
-            <p> Immobilienberatung seit 2008.</p>
+            <h2>Amounex</h2>
+            <p>Get access to all </p>
+            <p> features on playstore</p>
           </div>
           <div className='card_etc'>
 
-            <span>Carlos Kuk - Eigentümer</span>
+            <span>Download</span>
           </div>
         </div>
 

@@ -1,7 +1,5 @@
 'use client'
 import React, { useEffect } from 'react'
-import Footer from './Footer/Footer'
-import Header from './Header/Header'
 
 const MainLayout = ({ children }) => {
     useEffect(() => {
@@ -10,9 +8,7 @@ const MainLayout = ({ children }) => {
       }, []);
     return (
         <>
-            <Header />
             <main>{children}</main>
-            <Footer />
 
 
         </>
